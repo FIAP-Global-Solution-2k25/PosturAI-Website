@@ -1,44 +1,68 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
-    return (
-        <>
-            <nav className="absolute top-0 left-0 w-full bg-transparent text-black px-6 py-4 flex justify-around items-center z-50 top-3">
+    const location = useLocation();
 
-                <Link to="/" className="">
-                    <h1 className="font-bold text-xl">
-                        <span className="text-gray-100 hover:text-gray-300">Postur</span><span className="text-[#3950FA] text-xl transition-colors duration-900">AI</span>
-                    </h1>
+    const linkBase = `
+        relative 
+        after:absolute after:left-0 after:bottom-[-2px] 
+        after:h-[2px] after:w-0 after:bg-[#AFC7FF] 
+        hover:after:w-full 
+        hover:text-[#AFC7FF]
+        transition-all duration-300
+    `;
+
+    const activeLink = `
+        text-[#AFC7FF]
+        after:w-full 
+        font-semibold
+        drop-shadow-[0_0_6px_rgba(150,180,255,0.6)]
+    `;
+
+    return (
+        <nav
+            className="
+                fixed top-0 left-0 
+                w-full z-50 
+                bg-transparent
+                px-6 py-4
+                flex justify-around items-center
+            "
+        >
+
+            {/* LOGO */}
+            <Link to="/" className="pointer-events-auto">
+                <h1 className="font-bold text-xl tracking-tight text-white">
+                    <span className="text-[#AFC7FF]">Postur</span>
+                    <span className="text-white/90">AI</span>
+                </h1>
+            </Link>
+
+            {/* LINKS */}
+            <div className="flex gap-6 items-center text-lg font-semibold text-white/80 pointer-events-auto">
+
+                <Link
+                    to="/"
+                    className={`${linkBase} ${location.pathname === "/" ? activeLink : ""}`}
+                >
+                    Home
                 </Link>
 
-                <div className="flex gap-6 items-center text-lg text-white">
+                <Link
+                    to="/download"
+                    className={`${linkBase} ${location.pathname === "/download" ? activeLink : ""}`}
+                >
+                    Download
+                </Link>
 
-                    <Link 
-                        to="/" 
-                        className="relative after:absolute after:left-0 after:bottom-[-1px] after:h-[2px] after:w-0 
-                                   after:bg-[#5D65A6] after:transition-all after:duration-300 hover:after:w-full"
-                    >
-                        Home
-                    </Link>
+                <Link
+                    to="/about"
+                    className={`${linkBase} ${location.pathname === "/about" ? activeLink : ""}`}
+                >
+                    About
+                </Link>
 
-                    <Link 
-                        to="/download"
-                        className="relative after:absolute after:left-0 after:bottom-[-1px] after:h-[2px] after:w-0 
-                                   after:bg-[#5D65A6] after:transition-all after:duration-300 hover:after:w-full"
-                    >
-                        Download
-                    </Link>
-
-                    <Link 
-                        to="/about"
-                        className="relative after:absolute after:left-0 after:bottom-[-1px] after:h-[2px] after:w-0 
-                                   after:bg-[#5D65A6] after:transition-all after:duration-300 hover:after:w-full"
-                    >
-                        About
-                    </Link>
-
-                </div>
-            </nav>
-        </>
+            </div>
+        </nav>
     );
 }

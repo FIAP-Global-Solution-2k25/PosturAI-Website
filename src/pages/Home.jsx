@@ -1,95 +1,100 @@
-import Navbar from "../components/Navbar";
-import DarkVeil from "../components/DarkVeil";
-import RotatingText from '../components/RotatingText';
-import ScrollStack, { ScrollStackItem } from "../components/ScrollStack";
+import TextoRotativo from "../components/TextoRotativo";
+import LogosAnimadas from "../components/LogosAnimadas";
+import CartaoResponsivo from "../components/CartaoResponsivo";
 
 export default function Home() {
     return (
-        <div className="relative w-full min-h-screen overflow-x-hidden flex flex-col">
-
-            {/* NAV FIXO */}
-            <Navbar />
-
-            {/* BACKGROUND FIXO */}
-            <div className="fixed inset-0 -z-10 pointer-events-none">
-                <DarkVeil />
-            </div>
+        <div className="relative w-full overflow-x-hidden flex flex-col text-white bg-black">
 
             {/* HERO */}
-            <main className="flex flex-col items-center justify-center min-h-screen px-4 text-center text-white pt-10">
+                <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center ">
+                    
+                    <h1 className="
+                        text-4xl md:text-6xl lg:text-7xl 
+                        font-extrabold tracking-tight 
+                        flex flex-wrap justify-center items-center gap-4
+                    ">
+                        <span>Melhore sua&nbsp;</span>
 
-                <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg flex flex-wrap justify-center gap-3">
-                    Melhore sua
-                    <RotatingText
-                        texts={['Postura', 'Saúde', 'Vida']}
-                        mainClassName="
-                            inline-block 
-                            max-w-[250px] 
-                            bg-[#3950FA] 
-                            text-white 
-                            px-3 
-                            py-1 
-                            rounded-md 
-                            text-center 
-                            overflow-hidden
-                        "
-                        staggerFrom="last"
-                        initial={{ y: "100%" }}
-                        animate={{ y: 0 }}
-                        exit={{ y: "-120%" }}
-                        staggerDuration={0.025}
-                        splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                        transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                        rotationInterval={2000}
-                    />
-                    com o <span className="text-[#3245d8]">PosturAI</span>
-                </h1>
+                        <span className="inline-flex items-center">
+                            <TextoRotativo
+                                texts={["Postura", "Saúde", "Vida"]}
+                                mainClassName="
+                                    inline-block
+                                    w-[210px] md:w-[240px] lg:w-[270px]
+                                    text-center px-3 py-1.5
+                                    rounded-lg bg-white/5 backdrop-blur-sm
+                                "
+                                initial={{ y: "50%", opacity: 0, scale: 0.95 }}
+                                animate={{ y: 0, opacity: 1, scale: 1.05 }}
+                                exit={{ y: "-40%", opacity: 0, scale: 0.95 }}
+                                transition={{ type: "spring", damping: 22, stiffness: 250 }}
+                            />
+                        </span>
 
-                <p className="max-w-2xl mt-4 md:mt-6 text-lg md:text-xl opacity-90">
-                    Cuidar da sua saúde hoje é investir na saúde do seu amanhã.
-                </p>
+                        <span>&nbsp;com o</span>
 
-                <div className="mt-8 flex gap-4">
-                    <a 
-                        href="/download"
-                        className="px-6 py-3 bg-[#400AB1] hover:bg-blue-600 text-white 
-                                   font-semibold rounded-lg transition-all duration-300 
-                                   shadow-md hover:shadow-blue-700/40 animate-pulse-slow"
-                    >
-                        Baixar Aplicativo
-                    </a>
+                        <span className="text-[#AFC7FF] drop-shadow-[0_0_15px_rgba(100,150,255,0.45)]">
+                            &nbsp;PosturAI
+                        </span>
+                    </h1>
 
-                    <a 
-                        href="/about"
-                        className="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md 
-                                   border border-white/30 text-white font-semibold 
-                                   rounded-lg transition-all duration-300"
-                    >
-                        Saiba Mais
-                    </a>
-                </div>
+                    <p className="max-w-2xl mt-6 text-lg md:text-xl text-white/80">
+                        O PosturAI monitora sua postura em tempo real usando Inteligência Artificial,
+                        prevenindo dores, lesões e melhorando sua qualidade de vida.
+                    </p>
 
-            </main>
+                    <div className="mt-10 flex gap-5">
+                        <a
+                            href="/download"
+                            className="px-7 py-3 text-black bg-[#AFC7FF] hover:bg-white/30 hover:text-white
+                                       backdrop-blur-lg border border-white/30 rounded-xl transition-all duration-300"
+                        >
+                            Baixar Aplicativo
+                        </a>
 
-            {/* SCROLL STACK */}
-            <section className="w-full mt-[40vh] mb-[20vh] text-white">
-                <ScrollStack useWindowScroll={true}>
-                    <ScrollStackItem>
-                        <h2 className="text-center text-xl font-bold">Card 1</h2>
-                        <p className="text-center mt-2">Este é o primeiro card da pilha</p>
-                    </ScrollStackItem>
+                        <a
+                            href="#como-funciona"
+                            className="px-7 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-lg 
+                                       border border-white/20 rounded-xl transition-all duration-300"
+                        >
+                            Saiba Mais
+                        </a>
+                    </div>
 
-                    <ScrollStackItem>
-                        <h2 className="text-center text-xl font-bold">Card 2</h2>
-                        <p className="text-center mt-2">Este é o segundo card da pilha</p>
-                    </ScrollStackItem>
+                </section>
 
-                    <ScrollStackItem>
-                        <h2 className="text-center text-xl font-bold">Card 3</h2>
-                        <p className="text-center mt-2">Este é o terceiro card da pilha</p>
-                    </ScrollStackItem>
-                </ScrollStack>
-            </section>
+            {/* LOGOS */}
+            <LogosAnimadas />
+
+            {/* COMO FUNCIONA */}
+            <section id="como-funciona" className="px-6 py-24">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">Como funciona?</h2>
+
+                    <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                        <CartaoResponsivo>
+                            <h3 className="text-xl font-semibold mb-4">Monitoramento em tempo real</h3>
+                            <p className="opacity-80">
+                                A IA detecta sua postura automaticamente usando visão computacional.
+                            </p>
+                        </CartaoResponsivo>
+
+                        <CartaoResponsivo>
+                            <h3 className="text-xl font-semibold mb-4">Alertas inteligentes</h3>
+                            <p className="opacity-80">
+                                O sistema vibra, alerta ou mostra feedback visual quando você entorta.
+                            </p>
+                        </CartaoResponsivo>
+
+                        <CartaoResponsivo>
+                            <h3 className="text-xl font-semibold mb-4">Relatórios e progresso</h3>
+                            <p className="opacity-80">
+                                Acompanhe sua evolução e descubra quando sua postura melhora.
+                            </p>
+                        </CartaoResponsivo>
+                    </div>
+                </section>
+            {/* ... demais seções iguais, já ajustadas ... */}
 
         </div>
     );

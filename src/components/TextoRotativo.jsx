@@ -7,7 +7,7 @@ function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const RotatingText = forwardRef((props, ref) => {
+const TextoRotativo = forwardRef((props, ref) => {
   const {
     texts,
     transition = { type: 'spring', damping: 25, stiffness: 300 },
@@ -198,5 +198,5 @@ const RotatingText = forwardRef((props, ref) => {
   );
 });
 
-RotatingText.displayName = 'RotatingText';
-export default RotatingText;
+TextoRotativo.displayName = 'TextoRotativo';
+export default TextoRotativo;
