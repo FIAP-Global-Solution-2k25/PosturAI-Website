@@ -4,6 +4,27 @@ import CartaoResponsivo from "../components/CartaoResponsivo";
 import Particulas from "../components/Particulas";
 import GradualBlur from "../components/GradualBlur";
 import ScrollReveal from "../components/ScrollReveal";
+import ProfileCard from "../components/ProfileCard";
+import RobotSection from "../components/RobotSection";
+import Stack from "../components/Stack";
+import reactLogo from "../assets/simbolos/React.png";
+import gsapLogo from "../assets/simbolos/GSAP.png";
+import splineLogo from "../assets/simbolos/Spline.png";
+import tailwindLogo from "../assets/simbolos/tailwind.png";
+import viteLogo from "../assets/simbolos/vite-js-logo.png";
+
+
+import ArthurAvatar from "../assets/Arthur.png";
+import BerlofaAvatar from "../assets/Berlofa.png";
+import UlissesAvatar from "../assets/Ulisses.png";
+
+const images = [
+  { id: 1, img: reactLogo },
+  { id: 2, img: gsapLogo },
+  { id: 3, img: splineLogo },
+  { id: 4, img: tailwindLogo },
+  { id: 5, img: viteLogo }
+];
 
 const devs = [
   {
@@ -104,62 +125,72 @@ export default function Home() {
           </a>
         </div>
       </section>
-
-    {/* SEÇÃO DE DESENVOLVEDORES */}
-<section id="devs" className="relative w-full py-24 bg-black/40 border-y border-white/5">
-  <div className="max-w-5xl mx-auto px-6 space-y-24">
-    
-    <ScrollReveal baseOpacity={0} baseBlur={25} baseY={40}>
-      <header className="text-center mb-6">
-        <p className="text-xs tracking-[0.35em] uppercase text-white/40">
-          equipe de desenvolvimento
-        </p>
-        <h2 className="mt-3 text-2xl md:text-3xl font-semibold">
+      <RobotSection />
+    {/* DESENVOLVEDORES */}
+      <section id="devs" className="px-6 py-24">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
           Software desenvolvido por
         </h2>
-      </header>
-    </ScrollReveal>
 
-    {devs.map((dev, index) => (
-      <ScrollReveal
-        key={dev.name}
-        baseOpacity={0}
-        baseBlur={20}
-        baseY={60}
-      >
-        <article className="min-h-[60vh] grid md:grid-cols-[1fr,1.5fr] gap-10 items-center">
-          
-          <div className="flex justify-center md:justify-start">
-            <div className="h-44 w-44 md:h-52 md:w-52 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.85)] flex items-center justify-center overflow-hidden">
-              <span className="text-xs md:text-sm text-white/60 text-center leading-relaxed">
-                Foto do(a)
-                <br />
-                {dev.name}
-              </span>
+        <div className="max-w-6xl mx-auto grid gap-16 md:grid-cols-3">
+          {/* Arthur Ferreira */}
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-full max-w-xs mx-auto">
+              <ProfileCard
+                name="Arthur Ferreira"
+                title="Engenheiro de Software"
+                handle="tuturley"
+                status="Online"
+                contactText="Falar comigo"
+                avatarUrl={ArthurAvatar}
+                miniAvatarUrl={ArthurAvatar}
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => console.log("Contato Arthur Ferreira")}
+              />
             </div>
           </div>
 
-          <div className="text-left md:text-left space-y-4">
-            <p className="text-xs uppercase tracking-[0.25em] text-white/40">
-              Desenvolvedor {String(index + 1).padStart(2, "0")}
-            </p>
-
-            <h3 className="text-2xl md:text-3xl font-semibold">{dev.name}</h3>
-            <p className="text-sm md:text-base text-white/70">{dev.role}</p>
-            <p className="text-sm md:text-base text-white/60 max-w-xl">{dev.bio}</p>
-
-            <div className="mt-4 h-20 rounded-2xl border border-dashed border-white/15 bg-white/5/10 flex items-center justify-center text-xs text-white/40">
-              Área reservada para efeitos e cards avançados da foto do dev.
+          {/* Arthur Berlofa */}
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-full max-w-xs mx-auto">
+              <ProfileCard
+                name="Arthur Berlofa"
+                title="Engenheiro de Software"
+                handle="berloffabosi"
+                status="Online"
+                contactText="Falar comigo"
+                avatarUrl={BerlofaAvatar}
+                miniAvatarUrl={BerlofaAvatar}
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => console.log("Contato Arthur Berlofa")}
+              />
             </div>
           </div>
 
-        </article>
-      </ScrollReveal>
-    ))}
-
-  </div>
-</section>
-
+          {/* Ulisses Ribeiro */}
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-full max-w-xs mx-auto">
+              <ProfileCard
+                name="Ulisses Ribeiro"
+                title="Engenheiro de Software"
+                handle="__ribeiroxz"
+                status="Online"
+                contactText="Falar comigo"
+                avatarUrl={UlissesAvatar}
+                miniAvatarUrl={UlissesAvatar}
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => console.log("Contato Ulisses Ribeiro")}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* LOGOS */}
       <LogosAnimadas />
