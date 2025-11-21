@@ -2,21 +2,22 @@ import TextoRotativo from "../components/TextoRotativo";
 import LogosAnimadas from "../components/LogosAnimadas";
 import CartaoResponsivo from "../components/CartaoResponsivo";
 import Particulas from "../components/Particulas";
-import GradualBlur from "../components/GradualBlur";
+import GradualBlur from "../components/BlurGradual";
 import ProfileCard from "../components/ProfileCard";
-import RobotSection from "../components/RobotSection";
+import RobotSection from "../components/FeaturesSection";
 import reactLogo from "../assets/simbolos/React.png";
 import gsapLogo from "../assets/simbolos/GSAP.png";
 import splineLogo from "../assets/simbolos/Spline.png";
 import tailwindLogo from "../assets/simbolos/tailwind.png";
 import viteLogo from "../assets/simbolos/vite-js-logo.png";
 import ConfigForm from "../components/ConfigForm";
+import DownloadEXE from "../components/DownloadEXE.jsx";
+import ScrollReveal from '../components/ScrollReveal.jsx';
 
-
-
-import ArthurAvatar from "../assets/Arthur.png";
-import BerlofaAvatar from "../assets/Berlofa.png";
-import UlissesAvatar from "../assets/Ulisses.png";
+import ArthurAvatar from "../assets/Integrantes/Arthur.png";
+import BerlofaAvatar from "../assets/Integrantes/Berlofa.png";
+import UlissesAvatar from "../assets/Integrantes/Ulisses.png";
+import FeaturesSection from "../components/FeaturesSection";
 
 const images = [
   { id: 1, img: reactLogo },
@@ -44,35 +45,35 @@ const devs = [
   }
 ];
 
-
 export default function Home() {
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden flex flex-col text-white bg-black z-30">
+        
+        {/* PARTÍCULAS DE FUNDO */}
+      <div className="pointer-events-none absolute inset-0 z-20">
+        <div className="absolute inset-0 -z-20">
+            <Particulas
+                particleColors={['#ffffff', '#ffffff']}
+                particleCount={200}
+                particleSpread={10}
+                speed={0.1}
+                particleBaseSize={100}
+                moveParticlesOnHover={true}
+                alphaParticles={false}
+                disableRotation={false}
+                particleHoverFactor={1.5}
+            />
+            </div>
+      </div>
 
-      
-      {/* FUNDO DE PARTÍCULAS */}
-      <div className="pointer-events-none absolute inset-0 -z-20">
-        <Particulas
-            particleColors={["#ffffff", "#ffffff"]}
-            particleCount={200}
-            Particulaspread={10}
-            speed={0.1}
-            particleBaseSize={100}
-            moveParticulasOnHover={true}  
-            alphaParticulas={false}
-            disableRotation={false}
-        />
-        </div>
-
-
-      {/* OVERLAY ESCURO SUAVE */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+      {/* DIV POR CIMA PRA DEIXAR O FUNDO MAIS ESCURO */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
 
       {/* HERO */}
-      <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden" >
-  
+      <section className="relative flex flex-col items-center justify-center min-h-[80vh] px-6 text-center overflow-hidden mt-11">
+
         <h1 className="
-            text-4xl md:text-6xl lg:text-7xl 
+            text-6xl md:text-6xl lg:text-7xl 
             font-extrabold tracking-tight 
             flex flex-wrap justify-center items-center gap-4
         ">
@@ -80,19 +81,18 @@ export default function Home() {
 
           <span className="inline-flex items-center">
             <TextoRotativo
-                texts={["Postura", "Saúde", "Vida"]}
-                mainClassName="
-                    inline-flex
-                    items-center justify-center
-                    px-3 py-1.5
-                    rounded-lg bg-white/5 backdrop-blur-sm
-                "
-                initial={{ y: "50%", opacity: 0, scale: 0.95 }}
-                animate={{ y: 0, opacity: 1, scale: 1.05 }}
-                exit={{ y: "-40%", opacity: 0, scale: 0.95 }}
-                transition={{ type: "spring", damping: 22, stiffness: 250 }}
+              texts={["Postura", "Saúde", "Vida"]}
+              mainClassName="
+                inline-flex
+                items-center justify-center
+                px-3 py-1.5
+                rounded-lg bg-white/5 backdrop-blur-sm
+              "
+              initial={{ y: "50%", opacity: 0, scale: 0.95 }}
+              animate={{ y: 0, opacity: 1, scale: 1.05 }}
+              exit={{ y: "-40%", opacity: 0, scale: 0.95 }}
+              transition={{ type: "spring", damping: 22, stiffness: 250 }}
             />
-
           </span>
 
           <span>&nbsp;com o</span>
@@ -108,14 +108,7 @@ export default function Home() {
         </p>
 
         <div className="mt-10 flex gap-5">
-          <a
-            href="/download"
-            className="px-7 py-3 text-black bg-[#AFC7FF] hover:bg-white/30 hover:text-white
-                       backdrop-blur-lg border border-white/30 rounded-xl transition-all duration-300"
-          >
-            Baixar Aplicativo
-          </a>
-
+            <DownloadEXE />
           <a
             href="#como-funciona"
             className="px-7 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-lg 
@@ -125,24 +118,26 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <RobotSection />
 
-        {/* FORMULÁRIO DE CONFIGURAÇÃO */}
-            <ConfigForm />
+      <FeaturesSection />
 
-    {/* DESENVOLVEDORES */}
+      {/* FORMULÁRIO DE CONFIGURAÇÃO */}
+      <ConfigForm />
+
+      {/* DESENVOLVEDORES */}
       <section id="devs" className="px-6 py-24">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
-          Software desenvolvido por
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-14">
+          Responsáveis pelo projeto
         </h2>
 
         <div className="max-w-6xl mx-auto grid gap-16 md:grid-cols-3">
+
           {/* Arthur Ferreira */}
           <div className="flex flex-col items-center gap-4">
             <div className="w-full max-w-xs mx-auto">
               <ProfileCard
                 name="Arthur Ferreira"
-                title="Engenheiro de Software"
+                title="Desenvolvedor Front-end"
                 handle="tuturley"
                 status="Online"
                 contactText="Falar comigo"
@@ -151,6 +146,7 @@ export default function Home() {
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}
+                contactLink="https://www.linkedin.com/in/tuturley/"
                 onContactClick={() => console.log("Contato Arthur Ferreira")}
               />
             </div>
@@ -161,7 +157,7 @@ export default function Home() {
             <div className="w-full max-w-xs mx-auto">
               <ProfileCard
                 name="Arthur Berlofa"
-                title="Engenheiro de Software"
+                title="Integração Iot + JSON"
                 handle="berloffabosi"
                 status="Online"
                 contactText="Falar comigo"
@@ -170,6 +166,7 @@ export default function Home() {
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}
+                contactLink="https://www.linkedin.com/in/arthurberlofa/"
                 onContactClick={() => console.log("Contato Arthur Berlofa")}
               />
             </div>
@@ -180,7 +177,7 @@ export default function Home() {
             <div className="w-full max-w-xs mx-auto">
               <ProfileCard
                 name="Ulisses Ribeiro"
-                title="Engenheiro de Software"
+                title="Solução de Computer Vision"
                 handle="__ribeiroxz"
                 status="Online"
                 contactText="Falar comigo"
@@ -189,6 +186,7 @@ export default function Home() {
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}
+                 contactLink="https://www.linkedin.com/in/ulisses-abreu/"
                 onContactClick={() => console.log("Contato Ulisses Ribeiro")}
               />
             </div>
@@ -232,14 +230,15 @@ export default function Home() {
           </CartaoResponsivo>
         </div>
       </section>
-      <section></section>
+
+      {/* FOOTER BLUR */}
       <GradualBlur
         preset="page-footer"
         target="page"
         curve="bezier"
-        strength={1}
-        divCount={6}
-        opacity={0.6}
+        strength={10}
+        divCount={1}
+        opacity={0.8}
         exponential={true}
       />
     </div>

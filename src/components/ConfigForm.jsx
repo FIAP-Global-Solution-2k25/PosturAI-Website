@@ -175,11 +175,19 @@ export default function ConfigForm() {
                 placeholder="Chair:001"
               />
             </div>
+            <p className="text-xs text-white/50 mt-[-13px]">
+                Informe o ID configurado na cadeira IoT para comunicação correta.
+              </p>
+          </div>
+
+          {/* COLUNA 2 – Hardware extra & Interface */}
+          
+          <div className="space-y-6">
 
             {/* Atraso de vibração */}
             <div>
               <label className="block font-medium mb-2 text-white/90">
-                Atraso para vibrar após detectar má postura (segundos)
+                Atraso para vibrar após detectar má postura (milissegundos)
               </label>
               <input
                 type="number"
@@ -192,11 +200,11 @@ export default function ConfigForm() {
                 )}
                 className="w-full bg-black/40 border border-white/15 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400/70"
               />
+              <p className="text-xs text-white/50 mt-1">
+                Tempo de espera antes dos avisos da interface e/ ou vibração da cadeira.
+              </p>
             </div>
-          </div>
-
-          {/* COLUNA 2 – Hardware extra & Interface */}
-          <div className="space-y-6">
+            
             {/* ID da Webcam */}
             <div>
               <label className="block font-medium mb-2 text-white/90">
@@ -214,7 +222,7 @@ export default function ConfigForm() {
                 className="w-full bg-black/40 border border-white/15 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400/70"
               />
               <p className="text-xs text-white/50 mt-1">
-                Geralmente 0 é a câmera embutida no notebook.
+                O padrão é 0, mas caso queira usar outra câmera, altere aqui.
               </p>
             </div>
 
@@ -234,6 +242,9 @@ export default function ConfigForm() {
                 <option value="true">Sim</option>
                 <option value="false">Não</option>
               </select>
+              <p className="text-xs text-white/50 mt-1">
+                Always on Top mantém a janela do PosturAI visível sobre outros aplicativos.
+              </p>
             </div>
 
             {/* Gerar gráfico ao encerrar */}
@@ -255,6 +266,9 @@ export default function ConfigForm() {
                 <option value="false">Não</option>
               </select>
             </div>
+            <p className="text-xs text-white/50 mt-[-13px]">
+                Gráfico mostra para quais níveis de postura você mais se desviou durante a sessão.
+              </p>
           </div>
 
           {/* BOTÕES – largura total */}

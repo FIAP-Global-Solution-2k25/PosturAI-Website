@@ -49,18 +49,21 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                    to="/download"
-                    className={` ${linkBase} ${location.pathname === "/download" ? activeLink : ""}`}
-                >
-                    Download
-                </Link>
-
-                <Link
                     to="/about"
                     className={`${linkBase} ${location.pathname === "/about" ? activeLink : ""}`}
                 >
-                    Sobre nós
+                    Tutorial
                 </Link>
+
+
+                <Link
+                    to="/download"
+                    className={` ${linkBase} ${location.pathname === "/download" ? activeLink : ""}`}
+                >
+                    Quem somos
+                </Link>
+
+                
 
             </div>
         </nav>

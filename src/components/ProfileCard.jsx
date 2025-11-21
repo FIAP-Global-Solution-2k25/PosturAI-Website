@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
-import './ProfileCard.css';
+import '../css/ProfileCard.css';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
@@ -34,8 +34,10 @@ const ProfileCardComponent = ({
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,
-  onContactClick
+  onContactClick,
+  contactLink // << ADICIONADO AQUI
 }) => {
+
   const wrapRef = useRef(null);
   const shellRef = useRef(null);
 
@@ -204,7 +206,7 @@ const ProfileCardComponent = ({
       }
     };
     if (leaveRafRef.current) cancelAnimationFrame(leaveRafRef.current);
-    leaveRafRef.current = requestAnimationFrame(checkSettle);
+    leaveRafRefRef.current = requestAnimationFrame(checkSettle);
   }, [tiltEngine]);
 
   const handleDeviceOrientation = useCallback(
@@ -312,55 +314,69 @@ const ProfileCardComponent = ({
           <div className="pc-inside">
             <div className="pc-shine" />
             <div className="pc-glare" />
+
             <div className="pc-content pc-avatar-content">
               <img
                 className="avatar"
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
                 loading="lazy"
-                onError={e => {
-                  const t = e.target;
-                  t.style.display = 'none';
-                }}
+                onError={e => (e.target.style.display = 'none')}
               />
+
               {showUserInfo && (
                 <div className="pc-user-info">
                   <div className="pc-user-details">
                     <div className="pc-mini-avatar">
                       <img
                         src={miniAvatarUrl || avatarUrl}
-                        alt={`${name || 'User'} mini avatar`}
+                        alt="mini avatar"
                         loading="lazy"
                         onError={e => {
-                          const t = e.target;
-                          t.style.opacity = '0.5';
-                          t.src = avatarUrl;
+                          e.target.style.opacity = '0.5';
+                          e.target.src = avatarUrl;
                         }}
                       />
                     </div>
+
                     <div className="pc-user-text">
                       <div className="pc-handle">@{handle}</div>
                       <div className="pc-status">{status}</div>
                     </div>
                   </div>
-                  <button
-                    className="pc-contact-btn"
-                    onClick={handleContactClick}
-                    style={{ pointerEvents: 'auto' }}
-                    type="button"
-                    aria-label={`Contact ${name || 'user'}`}
-                  >
-                    {contactText}
-                  </button>
+
+                  {contactLink ? (
+                    <a
+                      href={contactLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pc-contact-btn"
+                      style={{ pointerEvents: "auto", textDecoration: "none" }}
+                    >
+                      {contactText}
+                    </a>
+                  ) : (
+                    <button
+                      className="pc-contact-btn"
+                      onClick={handleContactClick}
+                      style={{ pointerEvents: "auto" }}
+                      type="button"
+                    >
+                      {contactText}
+                    </button>
+                  )}
+                  {/* <<<<<< FIM DO BOTÃO >>>>>> */}
                 </div>
               )}
             </div>
+
             <div className="pc-content">
               <div className="pc-details">
                 <h3>{name}</h3>
                 <p>{title}</p>
               </div>
             </div>
+
           </div>
         </section>
       </div>

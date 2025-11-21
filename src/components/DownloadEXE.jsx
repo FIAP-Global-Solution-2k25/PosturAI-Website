@@ -2,10 +2,10 @@ const arquivo_directory = '/src/assets/PosturAI/PosturAI.rar';
 
 export default function DownloadEXE() {
     return (
-        <div className="mt-10 flex gap-5">
-            <h3>Donwload do Arquivo .exe</h3>
-            <a href={arquivo_directory} download="PosturAI.rar" rel="noonpener noreferrer" className="px-7 py-3 text-black bg-[#AFC7FF] hover:bg-white/30 hover:text-white backdrop-blur-lg border border-white/30 rounded-xl transition-all duration-300">
-                Clique aqui para baixar o Arquivo
+        <div className="flex gap-5">
+            <a href={arquivo_directory} download="PosturAI.rar" rel="noonpener noreferrer" className="px-7 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-lg 
+                       border border-white/20 rounded-xl transition-all duration-300">
+                Baixe agora!
             </a>
         </div>
     );
