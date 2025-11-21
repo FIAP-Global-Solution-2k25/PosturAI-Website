@@ -1,7 +1,5 @@
 import { useRef, useState } from "react";
 
-const arquivo_directory = "/src/assets/PosturAI/PosturAI.rar";
-
 export default function DownloadEXE() {
     const divRef = useRef(null);
     const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -44,7 +42,7 @@ export default function DownloadEXE() {
             />
 
             <a
-                href={arquivo_directory}
+                href="https://github.com/FIAP-Global-Solution-2k25/PosturAI-Website/releases/download/download-v1/PosturAI.rar"
                 download="PosturAI.rar"
                 rel="noopener noreferrer"
                 className="relative block px-10 py-5 text-xl text-center 
