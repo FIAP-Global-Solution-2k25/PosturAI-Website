@@ -11,7 +11,7 @@ import SecaoDownload from "../components/SecaoDownload";
 import Tutorial from "../components/Tutorial";
 
 import ArthurAvatar from "../assets/Integrantes/Arthur.png";
-import BerlofaAvatar from "../assets/Integrantes/Berlofa.png";
+import BerlofaAvatar from "../assets/Integrantes/berlofa.png";
 import UlissesAvatar from "../assets/Integrantes/Ulisses.png";
 import FeaturesSection from "../components/FeaturesSection";
 
