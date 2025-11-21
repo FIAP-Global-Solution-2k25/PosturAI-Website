@@ -3,25 +3,23 @@ import Stack from "./Stack";
 // importa as logos
 import reactLogo from "../assets/simbolos/React.png";
 import gsapLogo from "../assets/simbolos/GSAP.png";
-import splineLogo from "../assets/simbolos/Spline.png";
 import tailwindLogo from "../assets/simbolos/tailwind.png";
 import viteLogo from "../assets/simbolos/vite-js-logo.png";
 
 const techCards = [
   { id: 1, img: reactLogo },
   { id: 2, img: gsapLogo },
-  { id: 3, img: splineLogo },
   { id: 4, img: tailwindLogo },
   { id: 5, img: viteLogo }
 ];
 
 export default function FeaturesSection() {
   return (
-    <section className="w-full flex justify-center mt-24 px-4">
+    <section className="w-full flex justify-center px-4 mb-32">
       <div
         className="
           relative w-full max-w-7xl 
-          bg-[#0e121a] border border-white/10 
+          bg-[black] border border-[#AFC7FF] 
           rounded-3xl p-10 overflow-hidden
         "
       >
