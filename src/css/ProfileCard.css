@@ -617,3 +617,10 @@
 .pc-glare {
   opacity: 0;
 }
+
+.pc-contact-btn {
+  pointer-events: auto;
+}
+.pc-card a {
+  pointer-events: auto;
+}

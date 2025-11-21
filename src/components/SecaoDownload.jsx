@@ -38,7 +38,7 @@ export default function SecaoDownload() {
         {/* Subtítulo */}
         <ScrollReveal delay={0.15}>
           <p className="text-center text-xl md:text-3xl text-white/70 max-w-4xl mx-auto mb-16">
-            Instale o <span className="text-[#AFC7FF] font-semibold">assistente inteligente</span>
+            Instale o <span className="text-[#AFC7FF] font-semibold">assistente inteligente </span>
             que monitora sua postura em tempo real e melhora sua qualidade de vida.
           </p>
         </ScrollReveal>

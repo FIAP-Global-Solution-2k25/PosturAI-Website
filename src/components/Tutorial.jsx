@@ -37,7 +37,7 @@ export default function Tutorial() {
         {/* Subtítulo */}
         <ScrollReveal delay={0.1}>
           <p className="text-center text-xl md:text-2xl text-white/70 max-w-4xl mx-auto mb-20">
-            Veja como instalar, configurar e usar o <span className="text-[#AFC7FF] font-semibold">PosturAI</span> 
+            Veja como instalar, configurar e usar o <span className="text-[#AFC7FF] font-semibold">PosturAI </span> 
             na sua máquina em poucos minutos.
           </p>
         </ScrollReveal>

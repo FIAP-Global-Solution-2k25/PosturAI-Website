@@ -4,17 +4,9 @@ import CartaoResponsivo from "../components/CartaoResponsivo";
 import Particulas from "../components/Particulas";
 import GradualBlur from "../components/BlurGradual";
 import ProfileCard from "../components/ProfileCard";
-import RobotSection from "../components/FeaturesSection";
-import reactLogo from "../assets/simbolos/React.png";
-import gsapLogo from "../assets/simbolos/GSAP.png";
-
-import tailwindLogo from "../assets/simbolos/tailwind.png";
-import viteLogo from "../assets/simbolos/vite-js-logo.png";
 import ConfigForm from "../components/ConfigForm";
-import DownloadEXE from "../components/DownloadEXE.jsx";
 import ScrollReveal from '../components/ScrollReveal.jsx';
 import SobreNos from "../components/SobreNos.jsx";
-import Footer from "../components/Footer";
 import SecaoDownload from "../components/SecaoDownload";
 import Tutorial from "../components/Tutorial";
 
@@ -38,12 +30,12 @@ export default function Home() {
             particleColors={['#ffffff', '#ffffff']}
             particleCount={2000}
             particleSpread={20}
-            speed={0.008}
+            speed={0.008} 
             particleBaseSize={300}
             moveParticlesOnHover={true}
             alphaParticles={false}
             disableRotation={false}
-            particleHoverFactor={3.5}
+            particleHoverFactor={1.5}
           />
         </div>
       </div>
